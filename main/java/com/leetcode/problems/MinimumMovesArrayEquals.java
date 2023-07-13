@@ -9,8 +9,7 @@ public class MinimumMovesArrayEquals {
         for(int i=0; i<nums.length; i++){
             Integer currentNumber = nums[i];
             Integer totalDiff = 0;
-            for(int z= 0; z<nums.length; z++){
-                Integer nextNumber = nums[z];
+            for (Integer nextNumber : nums) {
                 Integer diff;
                 diff = Math.abs(currentNumber - nextNumber);
                 totalDiff = totalDiff + diff;

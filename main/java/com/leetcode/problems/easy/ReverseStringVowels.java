@@ -1,39 +1,30 @@
 package com.leetcode.problems.easy;
 
-import java.util.HashSet;
-
+/**
+ * Given a string s, reverse only all the vowels in the string and return it.
+ * The vowels are 'a', 'e', 'i', 'o', and 'u', and they can appear in both lower and upper cases, more than once.
+ */
 public class ReverseStringVowels {
     public static String reverseVowels(String s) {
-        StringBuilder stringBuilder = new StringBuilder(s);
-        HashSet<Character> charSet = new HashSet<>();
-        charSet.add('a');
-        charSet.add('e');
-        charSet.add('i');
-        charSet.add('o');
-        charSet.add('u');
-        charSet.add('A');
-        charSet.add('E');
-        charSet.add('I');
-        charSet.add('O');
-        charSet.add('U');
-        int i = 0;
-        int j = s.length()-1;
-        while(i<j){
-            char firstChar = s.charAt(i);
-            if(charSet.contains(firstChar)) {
-                char lastChar = s.charAt(j);
-                if (charSet.contains(lastChar)) {
-                    stringBuilder.setCharAt(i, lastChar);
-                    i++;
-                    j--;
-                }
+        String vowels = "aeiouAEIOU";
+        int start = 0;
+        int end = s.length()-1;
+        char[] charArray =  s.toCharArray();
+        while(start < end){
+            while(start < end && !vowels.contains(charArray[start]+"")){
+                start++;
             }
-            else{
-                i++;
-                j--;
+            while(start < end && !vowels.contains(charArray[end]+"")){
+                end--;
             }
+            char temp = charArray[start];
+            charArray[start] = charArray[end];
+            charArray[end] = temp;
+
+            start++;
+            end--;
         }
-        return stringBuilder.toString();
+        return new String(charArray);
     }
 
     public static void main(String[] args) {
