@@ -7,8 +7,15 @@ package com.leetcode.problems.medium;
  */
 public class LongestIncreasingSubsequence {
     public static int lengthOfLIS(int[] nums) {
-        int longestLength = Integer.MIN_VALUE;
-        return longestLength;
+        int maxLength = Integer.MIN_VALUE;
+        int lis[] =new int[nums.length];
+        lis[0] = 1;
+        lis[1] = 1;
+        for(int x= nums.length-1; x > 0; x--){
+            int current = nums[x];
+            //lis[x] =
+        }
+        return maxLength;
     }
 
     public static void main(String[] args) {

@@ -43,8 +43,8 @@ public class LRUCache {
         cache1.put(1,5);
         cache1.put(1,2);
         System.out.println(cache1.get(1));
-        //cache1.put(3,3);
-        System.out.println(cache1.get(2));
+        cache1.put(3,3);
+        System.out.println(cache1.get(3));
         /*cache1.put(4,4);
         System.out.println(cache1.get(1));
         System.out.println(cache1.get(3));

@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 public class ValidPalindrome {
     public static boolean isPalindrome(String s) {
-        Pattern pattern = Pattern.compile("[^A-Za-z0-9]");
+        Pattern pattern = Pattern.compile("[^A-Za-z/d]");
         String input = s.toLowerCase().replaceAll(pattern.pattern(),"").strip();
         char[] array = input.toCharArray();
         StringBuffer stringBuffer = new StringBuffer();

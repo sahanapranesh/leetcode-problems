@@ -9,31 +9,26 @@ package com.leetcode.problems.medium;
 public class LongestSubArrayOfOnes {
 
     public static int longestSubarray(int[] nums) {
-        int initialLength = 0;
-        int z = 0;
-        while (z < nums.length) {
-            if(nums[z]!=0) {
-                initialLength++;
-                z++;
+        int left=0, right = 0, maxLength = 0, countOfZeroes = 0;
+        int n = nums.length;
+        while( right < n){
+            if(nums[right] == 0){
+                countOfZeroes++;
             }
-            else{
-                nums[z] = nums[z+1];
-                break;
+            while(left < n && countOfZeroes > 1){
+                if(nums[left] == 0){
+                    countOfZeroes--;
+                }
+                left++;
             }
-        }
-        int maxLength =  initialLength;
-        for(int j=z; j< nums.length-1; j++){
-            if(nums[j]==1) {
-                initialLength++;
-            } else {
-                nums[j] = nums[j+1];
-            }
-            maxLength = Math.max(maxLength, initialLength);
+            int size = (right - left);
+            maxLength = Math.max(maxLength, size);
+            right++;
         }
         return maxLength;
     }
 
     public static void main(String[] args) {
-        System.out.println(longestSubarray(new int[]{1,0,1,1,1,0}));
+        System.out.println(longestSubarray(new int[]{0,1,1,1,0,1,1,0,1}));
     }
 }
