@@ -1,6 +1,5 @@
 package com.java.features;
 
-import java.time.LocalDateTime;
 import java.util.*;
 import java.util.function.*;
 import java.util.stream.Collectors;
@@ -49,9 +48,15 @@ public class Student {
         biConsumer.accept("Sahana","Soumya");
         Consumer<Integer> consumer = (a) -> System.out.println(a*a);
         consumer.accept(8);
+
         Supplier<String> supplier = () -> "Name is Sahana";
         System.out.println(supplier.get());
+
         Predicate<String> test = (a) -> a.equals("Sahana");
+
+        TestFunctionalInterface<Student> testFunctionalInterface = System.out::println;
+        testFunctionalInterface.doSomething(student);
+
         System.out.println(test.test("soumya"));
         Function<Integer, Boolean> function = (a) -> a>4;
         function.apply(7);

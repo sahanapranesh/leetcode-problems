@@ -1,4 +1,4 @@
-package com.leetcode.problems.medium;
+package com.leetcode.problems.medium.slidingwindow;
 
 import java.util.HashSet;
 import java.util.Set;

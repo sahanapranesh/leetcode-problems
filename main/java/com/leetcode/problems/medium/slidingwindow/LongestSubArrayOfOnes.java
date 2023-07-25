@@ -1,4 +1,4 @@
-package com.leetcode.problems.medium;
+package com.leetcode.problems.medium.slidingwindow;
 
 /**
  * Given a binary array nums, you should delete one element from it.

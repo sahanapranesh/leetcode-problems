@@ -22,9 +22,9 @@ public class RomanNumerals {
                 nextValue = romanIntMap.get(String.valueOf(s.charAt(i + 1)));
             }
             if(currentValue < nextValue) {
-                sum = sum - currentValue;
+                sum -= currentValue;
             }else{
-                sum = sum+ currentValue;
+                sum += currentValue;
             }
         }
         return sum;

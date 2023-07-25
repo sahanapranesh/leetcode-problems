@@ -1,4 +1,4 @@
-package com.leetcode.problems.medium;
+package com.leetcode.problems.medium.dp;
 
 /**
  * Given an integer array nums, return the length of the longest strictly increasing
