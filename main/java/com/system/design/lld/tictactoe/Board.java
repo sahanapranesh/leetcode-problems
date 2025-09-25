@@ -1,5 +1,7 @@
 package com.system.design.lld.tictactoe;
 
+import java.util.Objects;
+
 public class Board {
     private String[][] matrix = new String[3][3];
     private Player currentPlayer;
@@ -19,7 +21,7 @@ public class Board {
         }
         boolean winRow = true, winColumn = true, winDiag = true;
         for(int i=0;i<3; i++){
-            if(matrix[row][i]!= player.getSymbol()){
+            if(!Objects.equals(matrix[row][i], player.getSymbol())){
                 winRow = false;
             }
             if(matrix[i][column]!= player.getSymbol()){

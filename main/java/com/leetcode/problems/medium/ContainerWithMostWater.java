@@ -11,6 +11,8 @@ public class ContainerWithMostWater {
                 result = height[right] * (right - left);
                 right--;
             }
+            System.out.println("Left:" +left);
+            System.out.println("Right:" +right);
             answer = Math.max(result, answer);
         }
         return answer;

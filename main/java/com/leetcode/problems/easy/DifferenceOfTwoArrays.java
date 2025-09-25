@@ -26,7 +26,10 @@ public class DifferenceOfTwoArrays {
                 commonMap.put(num, false);
             }
         }
-        nums1Result = commonMap.entrySet().stream().filter(Map.Entry::getValue).map(Map.Entry::getKey).collect(Collectors.toList());
+        nums1Result = commonMap.entrySet().stream()
+                .filter(Map.Entry::getValue)
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
         List<List<Integer>> result = new ArrayList<>();
         result.add(nums1Result);
         result.add(nums2Result.stream().toList());

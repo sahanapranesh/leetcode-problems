@@ -7,18 +7,24 @@ package com.leetcode.problems.medium.dp;
  */
 public class LongestIncreasingSubsequence {
     public static int lengthOfLIS(int[] nums) {
-        int maxLength = Integer.MIN_VALUE;
-        int lis[] =new int[nums.length];
-        lis[0] = 1;
-        lis[1] = 1;
-        for(int x= nums.length-1; x > 0; x--){
-            int current = nums[x];
-            //lis[x] =
+        int maxLength = 1;
+        int[] dp = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            dp[i] = 1;
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < i; j++) {
+                if (nums[i] > nums[j]) {
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                }
+            }
+            maxLength = Math.max(dp[i], maxLength);
         }
         return maxLength;
     }
 
     public static void main(String[] args) {
-        System.out.println(lengthOfLIS(new int[]{10,9,2,5,3,7,101,18}));
+        System.out.println(lengthOfLIS(new int[]{10, 9, 2, 5, 3, 7, 101, 18}));
     }
 }

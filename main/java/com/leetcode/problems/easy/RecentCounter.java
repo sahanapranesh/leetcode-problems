@@ -1,7 +1,6 @@
 package com.leetcode.problems.easy;
 
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * You have a RecentCounter class which counts the number of recent requests within a certain time frame.
@@ -13,22 +12,26 @@ import java.util.Queue;
  * It is guaranteed that every call to ping uses a strictly larger value of t than the previous call.
  */
 public class RecentCounter {
-    Queue<Integer> queue;
-    public RecentCounter() {
-        queue = new PriorityQueue<>();
+    LinkedList<Integer> counter;
 
+    public RecentCounter() {
+        counter = new LinkedList();
     }
 
     public int ping(int t) {
-        queue.add(t);
-        return t;
+        counter.add(t);
+        while(counter.getFirst() < t-3000){
+            counter.removeFirst();
+        }
+        return counter.size();
     }
 
     public static void main(String[] args) {
         RecentCounter recentCounter = new RecentCounter();
-        recentCounter.ping(1);
-        recentCounter.ping(100);
-        recentCounter.ping(3001);
-        recentCounter.ping(3002);
+        System.out.println(recentCounter.ping(642));
+        System.out.println(recentCounter.ping(1849));
+        System.out.println(recentCounter.ping(4921));
+        System.out.println(recentCounter.ping(5936));
+        System.out.println(recentCounter.ping(5957));
     }
 }

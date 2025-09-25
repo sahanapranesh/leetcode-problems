@@ -12,10 +12,11 @@ public class BinarySearchInsertPosition {
             else
                 high = mid;
         }
+        System.out.println(high);
         return low;
     }
 
     public static void main(String[] args) {
-        System.out.println(searchInsert(new int[]{1,3,5,6}, 7));
+        System.out.println(searchInsert(new int[]{1,3,5,6}, 2));
     }
 }

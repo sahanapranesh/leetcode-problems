@@ -16,20 +16,15 @@ public class Anagram {
         }
         for (int j = 0; j < b.length(); j++) {
             char current = b.charAt(j);
-            if (charMap.containsKey(current)) {
-                int curCount = charMap.get(current);
-                if(curCount > 1){
-                    charMap.put(current, --curCount);
-                }
-                else{
-                    charMap.remove(current);
-                }
+            if (!charMap.containsKey(current) || charMap.get(current) == 0) {
+                return false;
             }
+            charMap.put(current, charMap.get(current)-1);
         }
-        return charMap.isEmpty();
+        return true;
     }
 
     public static void main(String[] args) {
-        System.out.println(isAnagram("anah", "hanah"));
+        System.out.println(isAnagram("Hanah", "hanah"));
     }
 }
